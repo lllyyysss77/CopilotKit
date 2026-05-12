@@ -1,0 +1,870 @@
+# Instincts generated from https://github.com/lllyyysss77/CopilotKit
+# Generated: 2026-05-12T20:21:02.916Z
+# Version: 2.0
+# NOTE: This file supplements (does not replace) any existing curated instincts.
+# High-confidence manually curated instincts should be preserved alongside these.
+
+---
+id: CopilotKit-commit-conventional
+trigger: "when writing a commit message"
+confidence: 0.85
+domain: git
+source: repo-analysis
+source_repo: https://github.com/lllyyysss77/CopilotKit
+---
+
+# CopilotKit Commit Conventional
+
+## Action
+
+Use conventional commit format with prefixes: fix, feat, style, chore, test
+
+## Evidence
+
+- 100 commits analyzed
+- Detected conventional commit pattern
+- Examples: chore: bump @ag-ui/core and @ag-ui/client to 0.0.49, feat(shared): add capabilities to AgentDescription
+
+---
+id: CopilotKit-commit-length
+trigger: "when writing a commit message"
+confidence: 0.6
+domain: git
+source: repo-analysis
+source_repo: https://github.com/lllyyysss77/CopilotKit
+---
+
+# CopilotKit Commit Length
+
+## Action
+
+Write moderate-length commit messages (~64 characters)
+
+## Evidence
+
+- Average commit message length: 64 chars
+- Based on 100 commits
+
+---
+id: CopilotKit-naming-files
+trigger: "when creating a new file"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/lllyyysss77/CopilotKit
+---
+
+# CopilotKit Naming Files
+
+## Action
+
+Use camelCase naming convention
+
+## Evidence
+
+- Analyzed file naming patterns in repository
+- Dominant pattern: camelCase
+
+---
+id: CopilotKit-import-alias
+trigger: "when importing modules"
+confidence: 0.85
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/lllyyysss77/CopilotKit
+---
+
+# CopilotKit Import Alias
+
+## Action
+
+Use path aliases (@/, ~/) instead of relative imports
+
+## Evidence
+
+- Import analysis shows alias pattern
+- Example: import { x } from '@/lib/x'
+
+---
+id: CopilotKit-export-style
+trigger: "when exporting from a module"
+confidence: 0.7
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/lllyyysss77/CopilotKit
+---
+
+# CopilotKit Export Style
+
+## Action
+
+Prefer mixed exports
+
+## Evidence
+
+- Export pattern analysis
+- Dominant style: mixed
+
+---
+id: CopilotKit-arch-type-based
+trigger: "when adding new code"
+confidence: 0.8
+domain: architecture
+source: repo-analysis
+source_repo: https://github.com/lllyyysss77/CopilotKit
+---
+
+# CopilotKit Arch Type Based
+
+## Action
+
+Place code in the appropriate type folder (components/, services/, utils/, etc.)
+
+## Evidence
+
+- Type-based module organization detected
+- Folders: 
+
+---
+id: CopilotKit-test-framework
+trigger: "when writing tests"
+confidence: 0.9
+domain: testing
+source: repo-analysis
+source_repo: https://github.com/lllyyysss77/CopilotKit
+---
+
+# CopilotKit Test Framework
+
+## Action
+
+Use vitest as the test framework
+
+## Evidence
+
+- Test framework detected: vitest
+- File pattern: *.test.ts
+
+---
+id: CopilotKit-test-naming
+trigger: "when creating a test file"
+confidence: 0.85
+domain: testing
+source: repo-analysis
+source_repo: https://github.com/lllyyysss77/CopilotKit
+---
+
+# CopilotKit Test Naming
+
+## Action
+
+Name test files using the pattern: *.test.ts
+
+## Evidence
+
+- File pattern: *.test.ts
+- Consistent across test files
+
+---
+id: CopilotKit-test-mocking
+trigger: "when mocking dependencies in tests"
+confidence: 0.75
+domain: testing
+source: repo-analysis
+source_repo: https://github.com/lllyyysss77/CopilotKit
+---
+
+# CopilotKit Test Mocking
+
+## Action
+
+Use vi.mock for mocking
+
+## Evidence
+
+- Mocking pattern detected: vi.mock
+- Consistent across test files
+
+---
+id: CopilotKit-test-types
+trigger: "when planning tests for a feature"
+confidence: 0.7
+domain: testing
+source: repo-analysis
+source_repo: https://github.com/lllyyysss77/CopilotKit
+---
+
+# CopilotKit Test Types
+
+## Action
+
+Write unit, integration, e2e tests to match project standards
+
+## Evidence
+
+- Test types detected: unit, integration, e2e
+- Coverage config: yes
+
+---
+id: CopilotKit-workflow-feature-development
+trigger: "when implementing a new feature"
+confidence: 0.9
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/lllyyysss77/CopilotKit
+---
+
+# CopilotKit Workflow Feature Development
+
+## Action
+
+Follow the feature-development workflow:
+1. Add feature implementation
+2. Add tests for feature
+3. Update documentation
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~10x per month
+- Files: packages/shared/src/utils/*, packages/runtime/src/agent/__tests__/*, packages/runtime/src/agent/*
+
+---
+id: CopilotKit-workflow-refactoring
+trigger: "when refactoring code"
+confidence: 0.8
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/lllyyysss77/CopilotKit
+---
+
+# CopilotKit Workflow Refactoring
+
+## Action
+
+Follow the refactoring workflow:
+1. Ensure tests pass before refactor
+2. Refactor code structure
+3. Verify tests still pass
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~6x per month
+- Files: src/**/*
+
+---
+id: CopilotKit-workflow-package-version-bump-and-changelog
+trigger: "when doing package version bump and changelog"
+confidence: 0.6
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/lllyyysss77/CopilotKit
+---
+
+# CopilotKit Workflow Package Version Bump And Changelog
+
+## Action
+
+Follow the package-version-bump-and-changelog workflow:
+1. Update package.json version for each package
+2. Update CHANGELOG.md for each package
+3. Update pnpm-lock.yaml
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~2x per month
+- Files: packages/*/package.json, packages/*/CHANGELOG.md, pnpm-lock.yaml
+
+---
+id: CopilotKit-workflow-add-or-update-feature-across-multiple-packages
+trigger: "when doing add or update feature across multiple packages"
+confidence: 0.6
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/lllyyysss77/CopilotKit
+---
+
+# CopilotKit Workflow Add Or Update Feature Across Multiple Packages
+
+## Action
+
+Follow the add-or-update-feature-across-multiple-packages workflow:
+1. Add or update types in shared/types.ts
+2. Implement feature in core, runtime, and/or react-core
+3. Add or update tests in __tests__ folders
+4. Update hooks or utility files as needed
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~2x per month
+- Files: packages/shared/src/utils/types.ts, packages/core/src/**/*.ts, packages/runtime/src/**/*.ts
+
+---
+id: CopilotKit-workflow-add-or-update-api-endpoint-and-tests
+trigger: "when doing add or update api endpoint and tests"
+confidence: 0.6
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/lllyyysss77/CopilotKit
+---
+
+# CopilotKit Workflow Add Or Update Api Endpoint And Tests
+
+## Action
+
+Follow the add-or-update-api-endpoint-and-tests workflow:
+1. Create or update handler file in handlers/
+2. Create or update test file in __tests__/
+3. Update index or related files if needed
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~2x per month
+- Files: packages/runtime/src/v2/runtime/handlers/*.ts, packages/runtime/src/v2/runtime/__tests__/*.test.ts
+
+---
+id: CopilotKit-workflow-add-or-update-react-hook-and-tests
+trigger: "when doing add or update react hook and tests"
+confidence: 0.6
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/lllyyysss77/CopilotKit
+---
+
+# CopilotKit Workflow Add Or Update React Hook And Tests
+
+## Action
+
+Follow the add-or-update-react-hook-and-tests workflow:
+1. Create or update hook file in hooks/
+2. Add or update test file in hooks/__tests__/
+3. Export hook in hooks/index.ts
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~2x per month
+- Files: packages/react-core/src/v2/hooks/*.ts*, packages/react-core/src/v2/hooks/__tests__/*.test.tsx, packages/react-core/src/v2/hooks/index.ts
+
+---
+id: CopilotKit-workflow-integration-example-addition-or-expansion
+trigger: "when doing integration example addition or expansion"
+confidence: 0.6
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/lllyyysss77/CopilotKit
+---
+
+# CopilotKit Workflow Integration Example Addition Or Expansion
+
+## Action
+
+Follow the integration-example-addition-or-expansion workflow:
+1. Add or update Dockerfile(s) and docker-compose.test.yml
+2. Add or update fixtures/default.json
+3. Add or update minimal agent/main.py or src/app/api/copilotkit/route.ts
+4. Update package.json or config files as needed
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~2x per month
+- Files: examples/integrations/*/Dockerfile*, examples/integrations/*/docker-compose.test.yml, examples/integrations/*/fixtures/default.json
+
+---
+id: CopilotKit-workflow-docs-integration-section-addition
+trigger: "when doing docs integration section addition"
+confidence: 0.55
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/lllyyysss77/CopilotKit
+---
+
+# CopilotKit Workflow Docs Integration Section Addition
+
+## Action
+
+Follow the docs-integration-section-addition workflow:
+1. Create docs/content/docs/integrations/[integration]/index.mdx and meta.json
+2. Add quickstart and feature pages (e.g., generative-ui, frontend-tools, shared-state, human-in-the-loop)
+3. Update integration selector, grid, and navigation components
+4. Update next.config.mjs or middleware for routing
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~1x per month
+- Files: docs/content/docs/integrations/*/index.mdx, docs/content/docs/integrations/*/meta.json, docs/content/docs/integrations/*/*.mdx
+
+---
+id: CopilotKit-workflow-test-suite-expansion-or-review-feedback
+trigger: "when doing test suite expansion or review feedback"
+confidence: 0.6
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/lllyyysss77/CopilotKit
+---
+
+# CopilotKit Workflow Test Suite Expansion Or Review Feedback
+
+## Action
+
+Follow the test-suite-expansion-or-review-feedback workflow:
+1. Add or update test files for feature or edge cases
+2. Extract helpers or constants for reuse
+3. Refactor test code for clarity or DRYness
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~2x per month
+- Files: packages/*/src/**/__tests__/*.test.ts*, sdk-python/tests/*.py
+
+---
+id: CopilotKit-workflow-docs-sync-or-auto-formatting
+trigger: "when doing docs sync or auto formatting"
+confidence: 0.6
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/lllyyysss77/CopilotKit
+---
+
+# CopilotKit Workflow Docs Sync Or Auto Formatting
+
+## Action
+
+Follow the docs-sync-or-auto-formatting workflow:
+1. Update docs files or scripts
+2. Apply formatting fixes to code or docs
+3. Update workflow files as needed
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~2x per month
+- Files: docs/content/docs/**/*.mdx, docs/scripts/*.ts, .github/workflows/*.yml
+
+---
+id: copilotkit-instinct-file-naming-camelCase
+trigger: "When creating a new file or renaming an existing file"
+confidence: 0.9
+domain: code-style
+source: repo-analysis
+source_repo: lllyyysss77/CopilotKit
+---
+
+# Copilotkit Instinct File Naming CamelCase
+
+## Action
+
+Use camelCase for file names
+
+## Evidence
+
+- Pattern in namingConventions.files
+- Consistent file naming in packages/ and examples/
+
+---
+id: copilotkit-instinct-function-naming-camelCase
+trigger: "When defining a new function"
+confidence: 0.9
+domain: code-style
+source: repo-analysis
+source_repo: lllyyysss77/CopilotKit
+---
+
+# Copilotkit Instinct Function Naming CamelCase
+
+## Action
+
+Name the function using camelCase
+
+## Evidence
+
+- Pattern in namingConventions.functions
+- Consistent function naming in shared/utils/types.ts
+
+---
+id: copilotkit-instinct-class-naming-PascalCase
+trigger: "When creating a new class"
+confidence: 0.9
+domain: code-style
+source: repo-analysis
+source_repo: lllyyysss77/CopilotKit
+---
+
+# Copilotkit Instinct Class Naming PascalCase
+
+## Action
+
+Name the class using PascalCase
+
+## Evidence
+
+- Pattern in namingConventions.classes
+- Usage in core and runtime packages
+
+---
+id: copilotkit-instinct-constant-naming-SCREAMING_SNAKE_CASE
+trigger: "When defining a constant"
+confidence: 0.9
+domain: code-style
+source: repo-analysis
+source_repo: lllyyysss77/CopilotKit
+---
+
+# Copilotkit Instinct Constant Naming SCREAMING_SNAKE_CASE
+
+## Action
+
+Use SCREAMING_SNAKE_CASE for constant names
+
+## Evidence
+
+- Pattern in namingConventions.constants
+- Seen in shared/utils/types.ts
+
+---
+id: copilotkit-instinct-import-alias-style
+trigger: "When importing modules"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: lllyyysss77/CopilotKit
+---
+
+# Copilotkit Instinct Import Alias Style
+
+## Action
+
+Use alias import style instead of relative paths where possible
+
+## Evidence
+
+- Pattern in importStyle: alias
+- Seen in packages/core/src and packages/runtime/src
+
+---
+id: copilotkit-instinct-mixed-export-style
+trigger: "When exporting modules or functions"
+confidence: 0.7
+domain: code-style
+source: repo-analysis
+source_repo: lllyyysss77/CopilotKit
+---
+
+# Copilotkit Instinct Mixed Export Style
+
+## Action
+
+Use a mixed export style (named and default exports as appropriate)
+
+## Evidence
+
+- Pattern in exportStyle: mixed
+- Seen in packages/react-core/src and shared/utils/types.ts
+
+---
+id: copilotkit-instinct-vitest-for-tests
+trigger: "When writing new tests for TypeScript code"
+confidence: 0.9
+domain: testing
+source: repo-analysis
+source_repo: lllyyysss77/CopilotKit
+---
+
+# Copilotkit Instinct Vitest For Tests
+
+## Action
+
+Use Vitest as the testing framework
+
+## Evidence
+
+- Pattern in testing.framework: vitest
+- Seen in *.test.ts files in packages/
+
+---
+id: copilotkit-instinct-test-file-pattern
+trigger: "When creating a test file"
+confidence: 0.9
+domain: testing
+source: repo-analysis
+source_repo: lllyyysss77/CopilotKit
+---
+
+# Copilotkit Instinct Test File Pattern
+
+## Action
+
+Name the file with the pattern *.test.ts (or *.test.tsx for React)
+
+## Evidence
+
+- Pattern in testing.filePattern: *.test.ts
+- Seen in packages/*/src/**/__tests__/*.test.ts*
+
+---
+id: copilotkit-instinct-use-vi-mock
+trigger: "When mocking dependencies in tests"
+confidence: 0.85
+domain: testing
+source: repo-analysis
+source_repo: lllyyysss77/CopilotKit
+---
+
+# Copilotkit Instinct Use Vi Mock
+
+## Action
+
+Use vi.mock for mocking
+
+## Evidence
+
+- Pattern in testing.mockingStyle: vi.mock
+- Seen in test files in packages/
+
+---
+id: copilotkit-instinct-test-types-coverage
+trigger: "When expanding test coverage"
+confidence: 0.8
+domain: testing
+source: repo-analysis
+source_repo: lllyyysss77/CopilotKit
+---
+
+# Copilotkit Instinct Test Types Coverage
+
+## Action
+
+Include unit, integration, and e2e tests as appropriate
+
+## Evidence
+
+- Pattern in testing.testTypes
+- Seen in test_suite_expansion_or_review_feedback workflow
+
+---
+id: copilotkit-instinct-conventional-commit-format
+trigger: "When writing a commit message"
+confidence: 0.95
+domain: git
+source: repo-analysis
+source_repo: lllyyysss77/CopilotKit
+---
+
+# Copilotkit Instinct Conventional Commit Format
+
+## Action
+
+Use conventional commit prefixes: fix, feat, style, chore, test, docs
+
+## Evidence
+
+- Pattern in commits.prefixes
+- Examples: 'feat(shared): ...', 'fix(CPK-7187): ...'
+
+---
+id: copilotkit-instinct-commit-message-length
+trigger: "When writing a commit message"
+confidence: 0.8
+domain: git
+source: repo-analysis
+source_repo: lllyyysss77/CopilotKit
+---
+
+# Copilotkit Instinct Commit Message Length
+
+## Action
+
+Keep the commit message concise (around 64 characters on average)
+
+## Evidence
+
+- Pattern in commits.averageLength
+- Examples in commit history
+
+---
+id: copilotkit-instinct-package-version-bump
+trigger: "When preparing for a new release or after merging significant changes"
+confidence: 0.95
+domain: workflow
+source: repo-analysis
+source_repo: lllyyysss77/CopilotKit
+---
+
+# Copilotkit Instinct Package Version Bump
+
+## Action
+
+Update package.json version, CHANGELOG.md, and pnpm-lock.yaml for all workspace packages
+
+## Evidence
+
+- Workflow: package-version-bump-and-changelog
+- Seen in commits updating package.json and CHANGELOG.md
+
+---
+id: copilotkit-instinct-feature-across-multiple-packages
+trigger: "When adding a cross-cutting feature that must propagate through multiple layers"
+confidence: 0.9
+domain: workflow
+source: repo-analysis
+source_repo: lllyyysss77/CopilotKit
+---
+
+# Copilotkit Instinct Feature Across Multiple Packages
+
+## Action
+
+Update shared/types, implement feature in core/runtime/react-core, add tests, update hooks/utilities as needed
+
+## Evidence
+
+- Workflow: add-or-update-feature-across-multiple-packages
+- Commits: feat(shared): add capabilities to AgentDescription, feat(runtime): implement getCapabilities() on BuiltInAgent
+
+---
+id: copilotkit-instinct-api-endpoint-and-tests
+trigger: "When adding or modifying an API endpoint"
+confidence: 0.85
+domain: workflow
+source: repo-analysis
+source_repo: lllyyysss77/CopilotKit
+---
+
+# Copilotkit Instinct Api Endpoint And Tests
+
+## Action
+
+Create or update handler file in handlers/, corresponding test in __tests__/, and update index or related files
+
+## Evidence
+
+- Workflow: add-or-update-api-endpoint-and-tests
+- Files: packages/runtime/src/v2/runtime/handlers/*.ts, __tests__/*.test.ts
+
+---
+id: copilotkit-instinct-react-hook-and-tests
+trigger: "When introducing new stateful logic or utility for React components"
+confidence: 0.9
+domain: workflow
+source: repo-analysis
+source_repo: lllyyysss77/CopilotKit
+---
+
+# Copilotkit Instinct React Hook And Tests
+
+## Action
+
+Create or update hook file in hooks/, add or update test file in hooks/__tests__/, export hook in hooks/index.ts
+
+## Evidence
+
+- Workflow: add-or-update-react-hook-and-tests
+- Files: packages/react-core/src/v2/hooks/*.ts*
+
+---
+id: copilotkit-instinct-integration-example
+trigger: "When adding support for a new integration or updating example coverage"
+confidence: 0.9
+domain: workflow
+source: repo-analysis
+source_repo: lllyyysss77/CopilotKit
+---
+
+# Copilotkit Instinct Integration Example
+
+## Action
+
+Add or update Dockerfile(s), docker-compose, fixtures, minimal agent/main.py or route.ts, and config files as needed
+
+## Evidence
+
+- Workflow: integration-example-addition-or-expansion
+- Files: examples/integrations/*/Dockerfile*
+
+---
+id: copilotkit-instinct-docs-integration-section
+trigger: "When a new integration is supported and needs documentation"
+confidence: 0.9
+domain: workflow
+source: repo-analysis
+source_repo: lllyyysss77/CopilotKit
+---
+
+# Copilotkit Instinct Docs Integration Section
+
+## Action
+
+Create integration docs section, quickstart/feature pages, update sidebar/navigation, and next.config.mjs
+
+## Evidence
+
+- Workflow: docs-integration-section-addition
+- Files: docs/content/docs/integrations/*/index.mdx
+
+---
+id: copilotkit-instinct-expand-test-suite
+trigger: "When increasing test coverage or after code review"
+confidence: 0.85
+domain: workflow
+source: repo-analysis
+source_repo: lllyyysss77/CopilotKit
+---
+
+# Copilotkit Instinct Expand Test Suite
+
+## Action
+
+Add or update test files, extract helpers/constants, refactor test code for clarity or DRYness
+
+## Evidence
+
+- Workflow: test-suite-expansion-or-review-feedback
+- Files: packages/*/src/**/__tests__/*.test.ts*
+
+---
+id: copilotkit-instinct-docs-sync-or-formatting
+trigger: "When keeping docs in sync or enforcing code style"
+confidence: 0.8
+domain: workflow
+source: repo-analysis
+source_repo: lllyyysss77/CopilotKit
+---
+
+# Copilotkit Instinct Docs Sync Or Formatting
+
+## Action
+
+Update docs files/scripts, apply formatting fixes, update workflow files as needed
+
+## Evidence
+
+- Workflow: docs-sync-or-auto-formatting
+- Files: docs/content/docs/**/*.mdx, .github/workflows/*.yml
+
+---
+id: copilotkit-instinct-try-catch-error-handling
+trigger: "When handling errors in TypeScript code"
+confidence: 0.7
+domain: code-style
+source: repo-analysis
+source_repo: lllyyysss77/CopilotKit
+---
+
+# Copilotkit Instinct Try Catch Error Handling
+
+## Action
+
+Use try-catch blocks for error handling
+
+## Evidence
+
+- Pattern in errorHandling.style: try-catch
+- No custom error classes or boundaries seen
+
